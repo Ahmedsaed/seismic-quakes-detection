@@ -15,7 +15,7 @@ This hybrid solution ensures both accurate detection and efficient filtering of 
 The repository is structured as follows:
 
 - **Development Notebooks/**: Contains all Jupyter notebook files used during the development and experimentation phases.
-- **Models/**: Stores the pre-trained model weights for the LSTM, YOLO, and bandpass filter models.
+- **Models/**: Stores the pre-trained model weights for the LSTM, YOLO.
 - **src/**: Contains the inference code that you can use to apply the models to new data.
 
 ## Inference Workflow
@@ -59,5 +59,4 @@ The project relies on the following libraries and frameworks:
 1. **LSTM Model**: Scans through the time-series data to detect potential seismic events.
 2. **YOLO Model**: Identifies and localizes event clusters within the data.
 3. **Bandpass Filter**: Cleans the data by removing irrelevant frequencies and focusing on seismic signals.
-4. **Post-processing**: Filters out "lonely" detections (less than two events in a 100-second window) and clusters relevant detections together.
 5. **Output**: Produces a plot with highlighted regions of interest and outputs the start and end timestamps of detected seismic events.
