@@ -2,12 +2,14 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import tensorflow as tf
+import os
 
 from datetime import datetime, timedelta
 from typing import List, Tuple
 from sklearn.preprocessing import StandardScaler
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+import tensorflow as tf
 
 class LSTMInferenceEngineV2:
     def __init__(
@@ -161,7 +163,7 @@ class LSTMInferenceEngineV2:
         plt.legend()
         plt.grid(True, alpha=0.3)
         plt.tight_layout()
-        plt.show()
+        plt.savefig('detections.png')
 
 def run_LSTM_engine(model_path: str, scaler_path, data_path: pd.DataFrame):
     # Load the trained model
@@ -183,7 +185,7 @@ def run_LSTM_engine(model_path: str, scaler_path, data_path: pd.DataFrame):
     def load_dataset(data_df):
         data_df.rename(columns={'time_abs(%Y-%m-%dT%H:%M:%S.%f)': 'time_abs'}, inplace=True)
         data_df.drop(columns=['time_rel(sec)'], inplace=True)
-        data_df['time_abs'] = pd.to_datetime(data_df['time_abs'], format='%Y-%m-%dT%H:%M:%S.%f')
+        data_df['time_abs'] = pd.to_datetime(data_df['time_abs'], format='%Y-%m-%d %H:%M:%S')
         data_df = data_df.rename(columns={'velocity(m/s)': 'amplitude'})
         return data_df
 
@@ -191,9 +193,9 @@ def run_LSTM_engine(model_path: str, scaler_path, data_path: pd.DataFrame):
 
     # Run detection
     detections = engine.detect_quakes(
-        data=new_data,
-        plot_results=False,
+        data=data,
+        plot_results=True,
         figsize=(15, 10)
     )
 
-    return detections
+    print(detections)
