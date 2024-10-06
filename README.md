@@ -42,7 +42,7 @@ To run inference on a new seismic data file, follow these steps:
    python inference.py lstm ./path/to/input/data.csv --model_path ../Models/LSTM_model.keras --scaler_path ../Models/LSTM_model_scaler.pkl 
    ```
    
-The script will automatically process the input data using the LSTM model, YOLO model, and Bandpass filter to detect and highlight relevant seismic events. It will output both the relevant timestamps and plots of seismic event clusters for further analysis.
+The script will automatically process the input data using the LSTM model, YOLO model, or Bandpass filter to detect and highlight relevant seismic events. It will output both the relevant timestamps and plots of seismic event clusters for further analysis under `./src/images` directory.
 
 ## Key Features
 

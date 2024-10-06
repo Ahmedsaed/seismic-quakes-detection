@@ -7,6 +7,9 @@ from engines.bandpass import run_bandpass_engine
 from engines.lstm import run_LSTM_engine
 from engines.yolo import run_YOLO_engine
 import argparse
+import os
+
+os.makedirs('./images', exist_ok=True)
 
 def main():
     parser = argparse.ArgumentParser(description='Run inference on seismic data files.')

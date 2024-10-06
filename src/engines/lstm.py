@@ -163,7 +163,7 @@ class LSTMInferenceEngineV2:
         plt.legend()
         plt.grid(True, alpha=0.3)
         plt.tight_layout()
-        plt.savefig('detections.png')
+        plt.savefig('./images/detections.png')
 
 def run_LSTM_engine(model_path: str, scaler_path, data_path: pd.DataFrame):
     # Load the trained model
@@ -185,7 +185,7 @@ def run_LSTM_engine(model_path: str, scaler_path, data_path: pd.DataFrame):
     def load_dataset(data_df):
         data_df.rename(columns={'time_abs(%Y-%m-%dT%H:%M:%S.%f)': 'time_abs'}, inplace=True)
         data_df.drop(columns=['time_rel(sec)'], inplace=True)
-        data_df['time_abs'] = pd.to_datetime(data_df['time_abs'], format='%Y-%m-%d %H:%M:%S')
+        data_df['time_abs'] = pd.to_datetime(data_df['time_abs'], format='%Y-%m-%dT%H:%M:%S.%f')
         data_df = data_df.rename(columns={'velocity(m/s)': 'amplitude'})
         return data_df
 

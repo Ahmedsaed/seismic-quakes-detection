@@ -74,6 +74,7 @@ def plot_events(data, time_column, signal_column, events, file_name):
 # Function to process the seismic data files.
 # Each file is filtered, cross-correlated, and events are detected and plotted.
 def run_bandpass_engine(data_path, sampling_rate=6.625, lowcut=0.4, highcut=2.0):
+    file_name = os.path.basename(data_path)
     data = pd.read_csv(data_path)  # Load data
 
     template = create_synthetic_template(sampling_rate, 6.6, 20)  # Create synthetic template

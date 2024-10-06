@@ -5,7 +5,7 @@ from ultralytics import YOLO
 import os
 import glob
 
-output_dir = "./images/plots/"
+output_dir = "./images/"
 os.makedirs(output_dir, exist_ok=True)
 
 def run_YOLO_engine(model_path, data_path):
@@ -34,4 +34,4 @@ def run_YOLO_engine(model_path, data_path):
     # Process results generator
     for result in results:
         boxes = result.boxes
-        result.save(filename=output_dir)
+        result.save(filename=output_dir + 'detections.png')
