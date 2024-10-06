@@ -4,9 +4,9 @@
 
 This project tackles the challenge of filtering seismic data from Mars and the Moon to detect and send only the relevant impact data. Given the large and noisy nature of the data, we employed a **Mixture of Experts** approach, combining three distinct models and algorithms to accurately identify and process seismic events:
 
-1. **LSTM Model** - Used for time-series analysis to detect potential seismic events based on historical patterns in the data.
-2. **YOLO Model** - Applied for object detection and localization within seismic event clusters, further refining the relevant data.
-3. **Bandpass Algorithm** - Utilized to filter noise and focus on seismic signals within a specific frequency range.
+1. **[LSTM Model](./Development%20Notebooks/LSTM_Model.ipynb)** - Used for time-series analysis to detect potential seismic events based on historical patterns in the data.
+2. **[YOLO Model](./Development%20Notebooks/YOLOv8_Model.ipynb)** - Applied for object detection and localization within seismic event clusters, further refining the relevant data.
+3. **[Bandpass Algorithm](./Development%20Notebooks/Bandpass_Algorithm.ipynb)** - Utilized to filter noise and focus on seismic signals within a specific frequency range.
 
 This hybrid solution ensures both accurate detection and efficient filtering of irrelevant or noisy data, enabling the transmission of only meaningful seismic events.
 
