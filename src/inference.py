@@ -11,8 +11,8 @@ import os
 
 def main():
     parser = argparse.ArgumentParser(description='Run inference on seismic data files.')
-    parser.add_argument('data_path', type=str, help='Path to the seismic data file.')
     parser.add_argument('engine', type=str, choices=['bandpass', 'lstm', 'yolo'], help='Inference engine to use.')
+    parser.add_argument('data_path', type=str, help='Path to the seismic data file.')
     parser.add_argument('--model_path', type=str, help='Path to the model file.')
     parser.add_argument('--scaler_path', type=str, help='Path to the scaler file.')
     args = parser.parse_args()

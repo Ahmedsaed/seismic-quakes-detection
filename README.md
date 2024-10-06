@@ -23,15 +23,23 @@ The repository is structured as follows:
 To run inference on a new seismic data file, follow these steps:
 
 1. Clone the repository.
+2. Navigate to the `src/` directory:
+   ```bash
+   cd src
+   ```
 2. Ensure that the necessary dependencies are installed by running:
    ```bash
    pip install -r requirements.txt
    ```
 
 3. Place your input seismic data CSV file in the appropriate location.
-4. Run the following command:
+4. Print the help message to understand the input arguments:
    ```bash
-   ./inference csv_input_data_file_path.csv
+   python inference.py --help
+   ```
+5. Run the inference script with the appropriate arguments:
+   ```bash
+   python inference.py lstm ./path/to/input/data.csv --model_path ../Models/LSTM_model.keras --scaler_path ../Models/LSTM_model_scaler.pkl 
    ```
    
 The script will automatically process the input data using the LSTM model, YOLO model, and Bandpass filter to detect and highlight relevant seismic events. It will output both the relevant timestamps and plots of seismic event clusters for further analysis.
